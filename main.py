@@ -1,12 +1,15 @@
-# octal_conversion_method2.py
+# hexadecimal_conversion_method3.py
 
-def decimal_to_octal_manual(decimal_number):
+def decimal_to_hexadecimal_using_math(decimal_number):
+    import math
+    hex_map = "0123456789ABCDEF"
     result = ""
     while decimal_number > 0:
-        result = str(decimal_number % 8) + result
-        decimal_number //= 8
+        remainder = decimal_number % 16
+        result = hex_map[remainder] + result
+        decimal_number = math.floor(decimal_number / 16)
     return result
 
 if __name__ == "__main__":
     number = int(input("10-lik sanoq tizimidagi sonni kiriting: "))
-    print("8-lik sanoq tizimi (Qo'lda hisoblangan):", decimal_to_octal_manual(number))
+    print("16-lik sanoq tizimi (Math kutubxonasi bilan):", decimal_to_hexadecimal_using_math(number))
