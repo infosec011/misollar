@@ -1,7 +1,12 @@
-# 10-likdan 2-lik sanoq tizimiga o'tkazish
-def decimal_to_binary(decimal_number):
-    return bin(decimal_number)[2:]
+# octal_conversion_method2.py
+
+def decimal_to_octal_manual(decimal_number):
+    result = ""
+    while decimal_number > 0:
+        result = str(decimal_number % 8) + result
+        decimal_number //= 8
+    return result
 
 if __name__ == "__main__":
     number = int(input("10-lik sanoq tizimidagi sonni kiriting: "))
-    print("2-lik sanoq tizimi:", decimal_to_binary(number))
+    print("8-lik sanoq tizimi (Qo'lda hisoblangan):", decimal_to_octal_manual(number))
